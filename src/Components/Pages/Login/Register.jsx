@@ -1,29 +1,50 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../../../public/register_img.json";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const { createUser } = useContext(AuthContext);
+  const { createUser,updateProfileUser } = useContext(AuthContext);
   const onSubmit = data => {
 
     createUser(data.email, data.password)
-        .then(result => {
-            console.log(result)
-        })
+    .then(result => {
+
+      const loggedUser = result.user;
+      console.log(loggedUser);
+
+      updateProfileUser(data.name, data.photoURL)
+          .then(() => {
+        
+                          Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'User created successfully.',
+                              showConfirmButton: false,
+                              timer: 1500
+                          });
+                          reset();
+                          Navigate('/');          
+          })
+          .catch(error => console.log(error))
+  })
         .catch(error => console.log(error))
 };
   return (
     <div className="md:grid md:grid-cols-2 gap-4 m-4">
       <div>
+       
       <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-slate-200 rounded-xl">
+      <h1 className="text-center text-2xl font-bold text-white bg-blue-200 py-2">Registration From</h1>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
@@ -102,7 +123,7 @@ const Register = () => {
           
         </div>
         <div className="form-control mt-6">
-          <input className="btn btn-primary" type="submit" value="Sign Up" />
+          <input className="btn btn-primary" type="submit" value="Registrater Now" />
         </div>
       </form>
       </div>
