@@ -12,7 +12,7 @@ const Slider = () => {
     <div className="absolute inset-0 bg-black opacity-30"></div>
        <div className="absolute inset-0 flex flex-col items-center justify-center">
       <p className="text-orange-400 md:text-3xl font-bold mb-4">Student summer camp</p>
-      <h1 className="text-white uppercase md:text-5xl font-bold mb-4 w-1/2 ">A Chance to provide formative experiences</h1>
+      <h1 className="text-white uppercase md:text-6xl font-bold mb-4 w-2/3 ">A Chance to provide formative experiences</h1>
       <button className="bg-orange-400 text-white font-bold  py-2 px-6 rounded text-2xl">Explore</button>
     </div>
     </>
