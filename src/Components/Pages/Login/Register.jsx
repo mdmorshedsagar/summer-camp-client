@@ -9,15 +9,22 @@ import GoogleLogin from "../SocialLogin/GoogleLogin";
 
 const Register = () => {
   const navigate = useNavigate();
+ 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
+    watch,
   } = useForm();
+  
+   
   const { createUser,updateProfileUser } = useContext(AuthContext);
   const onSubmit = data => {
-
+    if (data.password !== data.confirmPassword) {
+       
+      return;
+    }
     createUser(data.email, data.password)
     .then(() => {
     
@@ -117,7 +124,28 @@ const Register = () => {
       {errors.password?.type === "hasSpecialCharacter" && (
         <p className="text-red-600">Password must contain at least one special character</p>
       )}
-          
+       <div className="form-control">
+            <label className="label">
+              <span className="label-text">Confirm Password</span>
+            </label>
+            <input
+              type="password"
+              {...register("confirmPassword", {
+                required: true,
+                validate: {
+                  passwordMatch: (value) => value === watch("password"), // Compare with the value of "password" field
+                },
+              })}
+              placeholder="Confirm Password"
+              className="input input-bordered"
+            />
+            {errors.confirmPassword?.type === "required" && (
+              <p className="text-red-600">Confirm Password is required</p>
+            )}
+            {errors.confirmPassword?.type === "passwordMatch" && (
+              <p className="text-red-600">Passwords do not match</p>
+            )}
+          </div>
           <p className="text-xl">Your Already have an account, please <Link className="text-orange-500" to="/login">Login</Link></p>
           
         </div>
