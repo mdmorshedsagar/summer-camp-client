@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../../../public/register_img.json";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,23 +18,20 @@ const Register = () => {
   const onSubmit = data => {
 
     createUser(data.email, data.password)
-    .then(result => {
-
-      const loggedUser = result.user;
-      console.log(loggedUser);
-
+    .then(() => {
+    
       updateProfileUser(data.name, data.photoURL)
           .then(() => {
         
                           Swal.fire({
-                              position: 'top-end',
+                              position: 'top-center',
                               icon: 'success',
                               title: 'User created successfully.',
                               showConfirmButton: false,
                               timer: 1500
                           });
                           reset();
-                          Navigate('/');          
+                          navigate('/');          
           })
           .catch(error => console.log(error))
   })

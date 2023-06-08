@@ -2,18 +2,36 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../../../public/login_img.json";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { LoginUser } = useContext(AuthContext);
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
       } = useForm();
     
       const onSubmit = (data) => {
     
-        console.log('Email:', data.email);
-        console.log('Password:', data.password);
+       
+        LoginUser(data.email, data.password)
+         .then(() => {
+        
+          Swal.fire({
+              position: 'top-center',
+              icon: 'success',
+              title: 'User created successfully.',
+              showConfirmButton: false,
+              timer: 1500
+          });
+          reset();
+                   
+})
+.catch(error => console.log(error))
       };
     return (
         <div className="md:flex gap-4 items-center md:m-8">
@@ -51,9 +69,9 @@ const Login = () => {
         )}
       </div>
       
-      <p className="text-xl">If you new , please <Link className="text-orange-500" to="/login">Registration</Link></p>
+      <p className="text-xl mb-2">If you new , please <Link className="text-orange-500" to="/register">Registration</Link></p>
       <div>
-      <input  className="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full text-xl font-bold" type="submit" value="Login now" />
+      <input  className="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full text-xl font-bold cursor-pointer" type="submit" value="Login now" />
        
       </div>
     </form>
