@@ -9,12 +9,13 @@ const auth = getAuth(app);
 // eslint-disable-next-line react/prop-types
 const AuthProviders = ({children}) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
     const createUser = (email, password) => {
-        
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const LoginUser = (email, password) => {
-      
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
     const updateProfileUser = (name, photo) => {
@@ -23,14 +24,14 @@ const AuthProviders = ({children}) => {
         });
     }
     const logOut = () => {
-      
+        setLoading(true)
         return signOut(auth);
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-         
+            setLoading(false);
         });
         return () => {
             return unsubscribe();
@@ -43,6 +44,7 @@ const AuthProviders = ({children}) => {
         createUser,
         LoginUser,
         logOut,
+        loading
     }
     return (
         <AuthContext.Provider value={authInfo}>

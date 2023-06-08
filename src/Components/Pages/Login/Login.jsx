@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../../../public/login_img.json";
 import { useContext } from "react";
@@ -8,6 +8,9 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   const { LoginUser } = useContext(AuthContext);
+   const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const {
         register,
         handleSubmit,
@@ -29,6 +32,7 @@ const Login = () => {
               timer: 1500
           });
           reset();
+          navigate(from, { replace: true });
                    
 })
 .catch(error => console.log(error))
