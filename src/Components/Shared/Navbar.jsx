@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProviders";
 const Navbar = () => {
+  const {user,  logOut } = useContext(AuthContext);
+  
+
+  const handleLogOut = () => {
+      logOut()
+          .then(() => { })
+          .catch(error => console.log(error));
+  }
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -9,18 +18,25 @@ const Navbar = () => {
   };
   
   const navItems = <>
-
-
-       <div className="flex items-center">
+      {
+            user ? <>
+                 <div className="flex items-center">
        <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
         <div className="w-10 rounded-full">
-          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img src={user.photoURL} />
         </div>
       </label>
       <Link to="">
-      <button className="btn btn-ghost normal-case text-xl">daisyUI</button>
+      <button onClick={handleLogOut} className="btn btn-outline hover:btn-ghost normal-case text-xl font-bold">Log Out</button>
       </Link>
        </div>
+            </> : <>
+            <button className="btn btn-outline hover:btn-ghost normal-case text-xl font-bold"><Link to="/login">Login</Link></button>
+                
+            </>
+        }
+
+     
   </>
 
   return (
