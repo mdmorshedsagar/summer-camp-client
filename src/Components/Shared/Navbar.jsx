@@ -22,11 +22,11 @@ const Navbar = () => {
       {
             user ? <>
                  <div className="flex items-center">
-       <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
-        <div className="w-10 rounded-full">
-          <img src={user.photoURL} />
-        </div>
-      </label>
+                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar relative mx-2">
+  <div className="w-10 rounded-full">
+  <img src={user?.photoURL} title={user?.displayName} />
+  </div>
+</label>
       <Link to="">
       <button onClick={handleLogOut} className="btn btn-outline hover:btn-ghost normal-case text-xl font-bold">Log Out</button>
       </Link>
@@ -41,13 +41,13 @@ const Navbar = () => {
   </>
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <nav className="container mx-auto max-w-screen-xl px-4 md:py-4">
+    <div className="fixed top-0 left-0 w-full  bg-white shadow-md z-50">
+    <nav className="container mx-auto  max-w-screen-xl px-4 md:py-4">
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center">
           <Link to="/">
             <img
-              className="w-[180px] h-auto"
+              className="w-[100px] md:w-[180px] h-auto"
               src={logo}
               alt="Logo"
             />

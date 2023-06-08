@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import GoogleLogin from "../SocialLogin/GoogleLogin";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -123,7 +124,9 @@ const Register = () => {
         <div className="form-control mt-6">
           <input className="btn btn-primary" type="submit" value="Registrater Now" />
         </div>
+        <GoogleLogin></GoogleLogin>
       </form>
+     
       </div>
       <div>
      

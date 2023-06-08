@@ -5,6 +5,7 @@ import groovyWalkAnimation from "../../../../public/login_img.json";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import GoogleLogin from "../SocialLogin/GoogleLogin";
 
 const Login = () => {
   const { LoginUser } = useContext(AuthContext);
@@ -38,7 +39,7 @@ const Login = () => {
 .catch(error => console.log(error))
       };
     return (
-        <div className="md:flex gap-4 items-center md:m-8">
+        <div className="md:flex gap-4 items-center md:m-8 mt-16">
             <div className="md:w-1/2">
             <Lottie animationData={groovyWalkAnimation} loop={true} />
             </div>
@@ -78,7 +79,9 @@ const Login = () => {
       <input  className="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full text-xl font-bold cursor-pointer" type="submit" value="Login now" />
        
       </div>
+      <GoogleLogin></GoogleLogin>
     </form>
+    
         </div>
        
     );
