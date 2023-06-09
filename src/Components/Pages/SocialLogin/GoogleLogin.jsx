@@ -3,6 +3,7 @@ import { FaGooglePlusG } from "react-icons/fa";
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 const GoogleLogin = () => {
     const { googleSign } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -12,10 +13,34 @@ const GoogleLogin = () => {
 
     const handleGoogleSign = () => {
         googleSign()
-            .then((result) => {
-                console.log(result)
-               navigate(from, { replace: true }); 
+        .then(result => {
+            const loggingUser = result.user;
+      
+            const savedUser = { name: loggingUser.displayName, email: loggingUser.email , photo:loggingUser.photoURL }
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(savedUser)
             })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data)
+
+                    if (data.insertedId) {
+                         
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate(from, { replace: true });
+                    }
+                })
+        })
             .catch(error => console.log(error));
     }
 

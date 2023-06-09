@@ -29,8 +29,21 @@ const Register = () => {
     .then(() => {
     
       updateProfileUser(data.name, data.photoURL)
-          .then(() => {
+          
         
+            .then(() => {
+              const saveUser = { name: data.name, email: data.email , photo:data.photoURL }
+              fetch('http://localhost:5000/users', {
+                  method: 'POST',
+                  headers: {
+                      'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(saveUser)
+              })
+                  .then(res => res.json())
+                  .then(data => {
+                      if (data.insertedId) {
+                         
                           Swal.fire({
                               position: 'top-center',
                               icon: 'success',
@@ -39,12 +52,17 @@ const Register = () => {
                               timer: 1500
                           });
                           reset();
-                          navigate('/');          
+                          navigate('/');
+                      }
+                  })
+
+
+
+          })
+          .catch(error => console.log(error))        
           })
           .catch(error => console.log(error))
-  })
-        .catch(error => console.log(error))
-};
+  };
   return (
     <div className="md:grid md:grid-cols-2 gap-4 m-4">
       <div>
