@@ -26,7 +26,7 @@ const GoogleLogin = () => {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    console.log(data)
+                    
 
                     if (data.insertedId) {
                          
@@ -37,8 +37,8 @@ const GoogleLogin = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        navigate(from, { replace: true });
                     }
+                    navigate(from, { replace: true });
                 })
         })
             .catch(error => console.log(error));

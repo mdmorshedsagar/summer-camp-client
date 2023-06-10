@@ -3,60 +3,100 @@
       "name": "Basketball",
       "description": "Learn the fundamentals of basketball and improve your skills.",
       "imageURL": "https://media.istockphoto.com/id/1412026365/photo/junior-level-basketball-player-bouncing-basketball-young-basketball-player-with-classic-ball.jpg?s=1024x1024&w=is&k=20&c=CkwG_3BLAh8nf6OthA8exSTbvo5x3wgtJ5YYRyJwMT0=",
-      "studentsCount": 50
+      "instructorName": "John Doe",
+      "studentsCount": 45,
+      "availableSeats": 35,
+      "Total_seats": 80,
+      "price": 10
     },
     {
       "name": "Football",
       "description": "Join our football classes and become a skilled player.",
       "imageURL": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rm9vdGJhbGx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
-      "studentsCount": 40
+      "instructorName": "David Johnson",
+      "studentsCount": 35,
+      "availableSeats": 45,
+      "Total_seats": 80,
+      "price": 10
     },
     {
       "name": "Swimming",
       "description": "Dive into the pool and learn swimming techniques.",
       "imageURL": "https://media.istockphoto.com/id/1339552006/photo/multi-ethnic-group-of-children-learning-to-kick-in-the-swimming-pool.jpg?s=1024x1024&w=is&k=20&c=nhRROAaZWjAoEineoFrYfMV8qR99UaOe3Jr_VkelM6Q=",
-      "studentsCount": 35
+      "instructorName": "Michael Brown",
+      "studentsCount": 34,
+      "availableSeats": 16,
+      "Total_seats": 50,
+      "price": 10
     },
     {
       "name": "Tennis",
       "description": "Master the art of playing tennis with our professional coaches.",
       "imageURL": "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVubmlzJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
-      "studentsCount": 30
+      "instructorName": "Jane Smith",
+      "studentsCount": 22,
+      "availableSeats": 28,
+      "Total_seats": 50,
+      "price": 10
     },
     {
       "name": "Badminton",
       "description": "Discover the world of flexibility and strength through gymnastics.",
       "imageURL": "https://media.istockphoto.com/id/1083127392/photo/chinese-girl-holding-badminton-racket-and-shuttlecock.jpg?s=1024x1024&w=is&k=20&c=L5a7Bh4S_1CcjWADZhpGLAjdWHX-tbaj6yfB1vFmD0Q=",
-      "studentsCount": 25
+      "instructorName": "John cet",
+      "studentsCount": 30,
+      "availableSeats": 22,
+      "Total_seats": 52,
+      "price": 10
     },
     {
       "name": "Cricket",
       "description": "Find peace and improve your well-being through yoga practice.",
       "imageURL": "https://media.istockphoto.com/id/1276613883/photo/montage-of-cricket-players-hitting-cricket-balls-in-outdoor-stadium.jpg?s=1024x1024&w=is&k=20&c=DUBqlyTuTCbdELiem4JzW8Cxt1bF5d0Cm1qV2G2C1dc=",
-      "studentsCount": 20
+      "instructorName": "Michel sam",
+      "studentsCount": 40,
+      "availableSeats": 40,
+      "Total_seats": 80,
+      "price": 10
     },
     {
       "name": "Hoky",
       "description": "Hit the shuttlecock and play badminton like a pro.",
       "imageURL": "https://media.istockphoto.com/id/1332278241/photo/ice-hockey-rink-arena-game-start-two-players-brutal-face-off-sticks-ready-referee-is-going-to.jpg?s=1024x1024&w=is&k=20&c=OQhDOOu07xH5zBrY2tb_-y--BdXp5pXQo2SfLRxdg0g=",
-      "studentsCount": 10
+      "instructorName": "John Doe",
+      "studentsCount": 24,
+      "availableSeats": 26,
+      "Total_seats": 50,
+      "price": 10
     },
     {
       "name": "Volleyball",
       "description": "Serve, set, and spike your way to victory in volleyball.",
       "imageURL": "https://media.istockphoto.com/id/1454027606/photo/female-volleyball-player-spiking-the-ball-during-game-at-sports-court.jpg?s=1024x1024&w=is&k=20&c=uptPK2xI0yAHo3c1vxYWpDM8zvAK-jP82xjkjnW9Hz0=",
-      "studentsCount": 7
+      "instructorName": "Michel sam",
+      "studentsCount": 21,
+      "availableSeats": 19,
+      "Total_seats": 40,
+      "price": 10
     },
     {
       "name": "Horse Riding",
       "description": "Experience the joy of horse riding and connect with nature.",
       "imageURL": "https://media.istockphoto.com/id/1331397523/photo/cowboy-riding-a-horse.jpg?s=1024x1024&w=is&k=20&c=bQBUTdD3uy7L3dUPruCBjj-Tde_pZ6R26VED0eS86u4=",
-      "studentsCount": 6
+      "instructorName": "John Doe",
+      "studentsCount":12,
+      "availableSeats": 18,
+      "Total_seats": 30,
+      "price": 10
     },
     {
       "name": "Table Tennis",
       "description": "Enjoy the fast-paced and exciting game of table tennis.",
       "imageURL": "https://media.istockphoto.com/id/123063009/photo/table-tennis-competition.jpg?s=1024x1024&w=is&k=20&c=7twhynS3N2yBsApTqT2pXmipUu29vPUp4VoPa6vZI98=",
-      "studentsCount": 5
+      "instructorName": "Michael Brown",
+      "studentsCount": 10,
+      "availableSeats": 14,
+      "Total_seats": 24,
+      "price": 10
     }
 ]    

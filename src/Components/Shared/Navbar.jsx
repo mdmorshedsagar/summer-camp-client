@@ -62,23 +62,12 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/register"
+              to="/allClasses"
               className="text-gray-600 hover:text-gray-900"
             >
-              Registration
+              All Classes
             </Link>
-            <Link
-              to="/services"
-              className="text-gray-600 hover:text-gray-900"
-            >
-              Services
-            </Link>
-            <Link
-              to="/contact"
-              className="text-gray-600 hover:text-gray-900"
-            >
-              Contact
-            </Link>
+            
             {navItems}
           </div>
         </div>
@@ -115,23 +104,12 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          to="/about"
+          to="/allClasses"
           className="text-gray-600 hover:text-gray-900 block"
         >
-          About
+          All Classes
         </Link>
-        <Link
-          to="/services"
-          className="text-gray-600 hover:text-gray-900 block"
-        >
-          Services
-        </Link>
-        <Link
-          to="/contact"
-          className="text-gray-600 hover:text-gray-900 block"
-        >
-          Contact
-        </Link>
+        
         {navItems}
       </div>
     </div>
