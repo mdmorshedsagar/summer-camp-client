@@ -67,6 +67,12 @@ const Navbar = () => {
             >
               All Classes
             </Link>
+            <Link
+              to="/dashboard"
+              className="text-gray-600 hover:text-gray-900"
+            >
+              DashBoard
+            </Link>
             
             {navItems}
           </div>
