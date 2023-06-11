@@ -5,6 +5,7 @@ import useAdmin from "../Hooks/useAdmin";
 
 const DashBoard = () => {
   const [isAdmin] = useAdmin();
+  const isInstructor= true;
     return (
         <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -17,10 +18,14 @@ const DashBoard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
            {
-            isAdmin &&<li><Link to="/dashboard/allUsers">All Users</Link></li>
+            isAdmin &&<><li><Link to="/dashboard/allUsers">All Users</Link></li>
+            <li><Link to="/dashboard/manageClasses">Manage classes</Link></li></>
+           }
+           {
+            isInstructor &&<li><Link to="/dashboard/addClasses">Add classes </Link></li>
            }
           
-            <li><a>Sidebar Item 2</a></li>
+            
           </ul>
         
         </div>

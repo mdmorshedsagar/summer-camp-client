@@ -10,6 +10,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import DashBoard from "../Layouts/DashBoard";
 import AllUsers from "../Pages/DashBoard/AllUsers";
 import AdminRoutes from "./AdminRoutes";
+import AddClasses from "../Pages/DashBoard/addClasses";
+import ManageClasses from "../Pages/DashBoard/ManageClasses";
 
  const router = createBrowserRouter([
     {
@@ -42,6 +44,14 @@ import AdminRoutes from "./AdminRoutes";
           {
             path: 'allUsers', 
             element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>
+          },
+          {
+            path: 'addClasses', 
+            element:<AddClasses></AddClasses>
+          },
+          {
+            path: 'manageClasses', 
+            element:<AdminRoutes> <ManageClasses></ManageClasses></AdminRoutes>
           },
         ]
       }
