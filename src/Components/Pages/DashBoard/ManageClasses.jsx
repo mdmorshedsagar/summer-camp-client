@@ -1,6 +1,7 @@
 // import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 const ManageClasses = () => {
     const [classes, setClasses] = useState([]);
 
@@ -10,7 +11,7 @@ const ManageClasses = () => {
 
   const fetchClasses = () => {
     axios
-      .get('http://localhost:5000/classes/pending')
+      .get('http://localhost:5000/classes')
       .then((response) => {
         setClasses(response.data);
         console.log(response.data)
@@ -20,25 +21,58 @@ const ManageClasses = () => {
       });
   };
 
-  const handleApprove = (classId) => {
-    updateClassStatus(classId, 'approved');
-  };
 
-  const handleDeny = (classId) => {
-    updateClassStatus(classId, 'denied');
-  };
 
-  const updateClassStatus = (classId, status) => {
-    axios
-      .put(`http://localhost:5000/classes/${classId}/status`, { status })
-      .then((response) => {
-        console.log(response.data.message);
+  const updateClassApproved = (classId) => {
+
+    fetch(`http://localhost:5000/classes/approve/${classId._id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify( classId )
+    })
+      .then((res) => {
+         res.json()
+      })
+      .then(data => {
+         console.log(data);
         fetchClasses();
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Class aproved',
+        text: 'class approved successfully',
+  
+        showConfirmButton: false,
+        timer: 3000
+    });
   };
+  const updateClassDenied = (classId) => {
+    fetch(`http://localhost:5000/classes/deny/${classId._id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(classId)
+    })
+      .then((res) => res.json())
+      .then(data => {
+         console.log(data);
+        fetchClasses();
+      })
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Class denied',
+        text: 'class deneid successfully',
+  
+        showConfirmButton: false,
+        timer: 3000
+    });
+  };
+  
 
 //   const handleSendFeedback = (classId) => {
 //     // Open modal or navigate to another page for sending feedback
@@ -62,24 +96,24 @@ const ManageClasses = () => {
           <tbody>
             {classes.map((classItem) => (
               <tr key={classItem._id}>
-                <td className="py-2 px-4 border-b"> <img src={classItem.imageURL} /> </td>
+                <td className="py-2 px-4 border-b"> <img className="w-[100px] h-auto" src={classItem.imageURL} /> </td>
                 <td className="py-2 px-4 border-b">{classItem.sports_name}</td>
                 <td className="py-2 px-4 border-b">{classItem.instructorName}</td>
                 <td className="py-2 px-4 border-b">{classItem.availableSeats}</td>
-                <td className="py-2 px-4 border-b">{classItem.price}</td>
+                <td className="py-2 px-4 border-b">${classItem.price}</td>
                 <td className="py-2 px-4 border-b">{classItem.status}</td>
                 <td className="py-2 px-4 border-b">{classItem.status === 'pending' && (
   <>
     <button
       className="bg-green-500 text-white py-1 px-2 rounded disabled:opacity-50"
-      onClick={() => handleApprove(classItem._id)}
+      onClick={() => updateClassApproved(classItem)}
       disabled={classItem.status !== 'pending'}
     >
       Approve
     </button>
     <button
   className="bg-red-500 text-white py-1 px-2 rounded disabled:opacity-50"
-  onClick={() => handleDeny(classItem._id)}
+  onClick={() => updateClassDenied(classItem)}
   disabled={classItem.status !== 'pending'}
 >
   Deny
