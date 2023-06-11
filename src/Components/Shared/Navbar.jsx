@@ -68,6 +68,12 @@ const Navbar = () => {
               All Classes
             </Link>
             <Link
+              to="/allInstructor"
+              className="text-gray-600 hover:text-gray-900"
+            >
+              All Instructor
+            </Link>
+            <Link
               to="/dashboard"
               className="text-gray-600 hover:text-gray-900"
             >
@@ -115,6 +121,18 @@ const Navbar = () => {
         >
           All Classes
         </Link>
+        <Link
+              to="/allInstructor"
+              className="text-gray-600 hover:text-gray-900"
+            >
+              All Instructor
+            </Link>
+            <Link
+              to="/dashboard"
+              className="text-gray-600 hover:text-gray-900"
+            >
+              DashBoard
+            </Link>
         
         {navItems}
       </div>
