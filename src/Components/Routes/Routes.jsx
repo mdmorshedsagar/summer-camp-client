@@ -14,6 +14,7 @@ import AddClasses from "../Pages/DashBoard/addClasses";
 import ManageClasses from "../Pages/DashBoard/ManageClasses";
 import AllInstructor from "../Pages/AllInstructor/AllInstructor";
 import MyCart from "../Pages/DashBoard/MyCart";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 
  const router = createBrowserRouter([
     {
@@ -62,6 +63,11 @@ import MyCart from "../Pages/DashBoard/MyCart";
           {
             path: 'myCart', 
             element:<MyCart></MyCart>
+          },
+          {
+            path: 'payment/:id', 
+            element:<Payment></Payment>,
+            loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
           }
         ]
       }

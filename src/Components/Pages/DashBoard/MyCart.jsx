@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import useCart from "../../Hooks/useCart";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
@@ -71,7 +72,8 @@ const MyCart = () => {
                                 </td>
                                 <td className="text-end">${item.price}</td>
                                 <td>
-                                    <button className="btn bg-green-400 text-white">Pay</button>
+                                    <Link className="btn bg-green-400 text-white" to={`/dashboard/payment/${item._id}`}> Pay </Link>
+                                   
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-400 text-white">Delete</button>
