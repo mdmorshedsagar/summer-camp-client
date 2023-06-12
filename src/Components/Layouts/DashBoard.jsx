@@ -33,6 +33,11 @@ const Dashboard = () => {
               <Link to="/dashboard/addClasses">Add classes</Link>
             </li>
           )}
+           <li>
+                                <Link to="/dashboard/mycart"> My Cart
+                                </Link>
+
+                            </li>
         </ul>
       </div>
     </div>

@@ -13,6 +13,7 @@ import AdminRoutes from "./AdminRoutes";
 import AddClasses from "../Pages/DashBoard/addClasses";
 import ManageClasses from "../Pages/DashBoard/ManageClasses";
 import AllInstructor from "../Pages/AllInstructor/AllInstructor";
+import MyCart from "../Pages/DashBoard/MyCart";
 
  const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ import AllInstructor from "../Pages/AllInstructor/AllInstructor";
             path: 'manageClasses', 
             element:<AdminRoutes> <ManageClasses></ManageClasses></AdminRoutes>
           },
+          {
+            path: 'myCart', 
+            element:<MyCart></MyCart>
+          }
         ]
       }
    
