@@ -6,7 +6,7 @@ const PopularInstructor = () => {
     const [instructors, serInstructor] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popular_instructor")
+    fetch("https://summer-camp-school-server-self.vercel.app/popular_instructor")
       .then((res) => res.json())
       .then((data) => serInstructor(data));
   }, []);

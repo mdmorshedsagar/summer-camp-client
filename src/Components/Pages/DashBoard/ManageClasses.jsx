@@ -11,7 +11,7 @@ const ManageClasses = () => {
 
   const fetchClasses = () => {
     axios
-      .get('http://localhost:5000/classes')
+      .get('https://summer-camp-school-server-self.vercel.app/classes')
       .then((response) => {
         setClasses(response.data);
         console.log(response.data)
@@ -25,7 +25,7 @@ const ManageClasses = () => {
 
   const updateClassApproved = (classId) => {
 
-    fetch(`http://localhost:5000/classes/approve/${classId._id}`, {
+    fetch(`https://summer-camp-school-server-self.vercel.app/classes/approve/${classId._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const ManageClasses = () => {
     });
   };
   const updateClassDenied = (classId) => {
-    fetch(`http://localhost:5000/classes/deny/${classId._id}`, {
+    fetch(`https://summer-camp-school-server-self.vercel.app/classes/deny/${classId._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -74,9 +74,6 @@ const ManageClasses = () => {
   };
   
 
-//   const handleSendFeedback = (classId) => {
-//     // Open modal or navigate to another page for sending feedback
-//   };
     return (
         <div className="w-full m-4">
       <h1 className="text-2xl font-bold mb-4">Manage Classes</h1>

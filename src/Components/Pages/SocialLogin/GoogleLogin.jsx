@@ -17,7 +17,7 @@ const GoogleLogin = () => {
             const loggingUser = result.user;
       
             const savedUser = { name: loggingUser.displayName, email: loggingUser.email , photo:loggingUser.photoURL }
-            fetch('http://localhost:5000/users', {
+            fetch('https://summer-camp-school-server-self.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

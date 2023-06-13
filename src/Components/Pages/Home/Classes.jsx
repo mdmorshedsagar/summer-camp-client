@@ -5,7 +5,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popular_classes")
+    fetch("https://summer-camp-school-server-self.vercel.app/popular_classes")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
@@ -22,7 +22,7 @@ const Classes = () => {
            <div className="card  rounded-xl border border-spacing-2 " key={classData._id}>
       <div className="card-body bg-slate-50">
        <img src={classData.imageURL} className="h-[180px] " />
-        <p className="card-text">Sport: {classData.name}</p>
+        <p className="card-text">Sport: {classData.sports_name}</p>
         <p className="card-text">description: {classData.description}</p>
         <p className="card-text">Student: {classData.studentsCount}</p>
         

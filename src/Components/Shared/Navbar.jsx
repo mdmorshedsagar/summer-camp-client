@@ -123,16 +123,17 @@ const Navbar = () => {
         </Link>
         <Link
               to="/allInstructor"
-              className="text-gray-600 hover:text-gray-900"
+              className="text-gray-600 hover:text-gray-900 "
             >
               All Instructor
-            </Link>
-            <Link
+           </Link>
+           <br/>
+          <Link
               to="/dashboard"
               className="text-gray-600 hover:text-gray-900"
             >
               DashBoard
-            </Link>
+          </Link>
         
         {navItems}
       </div>

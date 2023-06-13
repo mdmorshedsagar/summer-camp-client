@@ -8,7 +8,7 @@ const AllClasses = () => {
 
     useEffect(() => {
       // Fetch the data from the API or JSON file
-      fetch('http://localhost:5000/allClasses')
+      fetch('https://summer-camp-school-server-self.vercel.app/allClasses')
         .then((res) => res.json())
         .then((data) => setClasses(data))
         

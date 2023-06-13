@@ -9,12 +9,13 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import PrivateRoutes from "./PrivateRoutes";
 import DashBoard from "../Layouts/DashBoard";
 import AllUsers from "../Pages/DashBoard/AllUsers";
-import AdminRoutes from "./AdminRoutes";
 import AddClasses from "../Pages/DashBoard/addClasses";
 import ManageClasses from "../Pages/DashBoard/ManageClasses";
 import AllInstructor from "../Pages/AllInstructor/AllInstructor";
 import MyCart from "../Pages/DashBoard/MyCart";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import MyClass from "../Pages/DashBoard/MyClass";
+import PaymentDetails from "../Pages/DashBoard/Payment/PaymentDetails";
 
  const router = createBrowserRouter([
     {
@@ -50,24 +51,32 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
         children:[
           {
             path: 'allUsers', 
-            element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>
+            element:<AllUsers></AllUsers>
+          },
+           {
+            path: 'manageClasses', 
+            element: <ManageClasses></ManageClasses>
           },
           {
             path: 'addClasses', 
             element:<AddClasses></AddClasses>
           },
           {
-            path: 'manageClasses', 
-            element:<AdminRoutes> <ManageClasses></ManageClasses></AdminRoutes>
+            path: 'instructorClass', 
+            element:<MyClass></MyClass>
           },
           {
             path: 'myCart', 
             element:<MyCart></MyCart>
           },
           {
+            path: 'paymentDetails', 
+            element:<PaymentDetails></PaymentDetails>
+          },
+          {
             path: 'payment/:id', 
             element:<Payment></Payment>,
-            loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+            loader: ({params}) => fetch(`https://summer-camp-school-server-self.vercel.app/carts/${params.id}`)
           }
         ]
       }
