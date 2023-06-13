@@ -17,8 +17,8 @@ const Slider = () => {
     </div>
     </>
     return (
-        <div>
-             <Carousel   showArrows={false}
+        <div >
+             <Carousel  className='sm:mt-12' showArrows={false}
         showThumbs={false}
         infiniteLoop={true}
         autoPlay={true}
